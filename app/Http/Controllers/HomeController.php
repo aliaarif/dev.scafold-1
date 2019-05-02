@@ -23,7 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('backend.dashboard');
+        $data = [
+            'pageTitle' => 'Dashboard'
+        ];
+
+        return view('backend.dashboard', $data);
     }
 
      /**
@@ -33,6 +37,26 @@ class HomeController extends Controller
      */
      public function form()
      {
-        return view('backend.form');
+        $data = [
+            'pageTitle' => 'Form'
+        ];
+
+        return view('backend.form', $data);
     }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function table()
+    {
+        $data = [
+            'pageTitle' => 'Table'
+        ];
+
+        return view('backend.table', $data);
+    }
+
+
 }

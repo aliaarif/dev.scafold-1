@@ -13,9 +13,15 @@
 
 Route::get('/', function () {
 	if(Auth::check()){
-		return view('backend.dashboard');	
+		$data = [
+			'pageTitle' => 'Dashboard'
+		];
+		return view('backend.dashboard', $data);		
 	}else{
-		return view('frontend.welcome');	
+		$data = [
+			'pageTitle' => 'Dashboard'
+		];
+		return view('frontend.welcome', $data);	
 	}
 
 });
@@ -26,6 +32,7 @@ Auth::routes();
 
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 Route::get('/form', 'HomeController@form')->name('form');
+Route::get('/table', 'HomeController@table')->name('table');
 
 
 
